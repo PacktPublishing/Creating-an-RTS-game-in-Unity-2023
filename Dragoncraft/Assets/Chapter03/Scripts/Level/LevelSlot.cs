@@ -8,5 +8,11 @@ namespace Dragoncraft
     {
         public LevelItemType ItemType;
         public Vector2Int Coordinates;
+
+        public LevelSlot(LevelItemType itemType, Vector2Int coordinates)
+        {
+            ItemType = itemType;
+            Coordinates = coordinates;
+        }
     }
 }

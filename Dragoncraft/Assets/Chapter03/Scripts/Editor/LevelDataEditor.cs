@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 namespace Dragoncraft
 {
@@ -11,36 +11,68 @@ namespace Dragoncraft
         {
             LevelData levelData = (LevelData)target;
 
-            levelData.Configuration = EditorGUILayout.ObjectField("Configuration: ", levelData.Configuration, typeof(LevelConfiguration), true) as LevelConfiguration;
+            AddLevelDetails(levelData);
 
-            levelData.Columns = EditorGUILayout.IntSlider("Columns: ", levelData.Columns, 1, 25);
+            AddLevelSlots(levelData);
 
-            levelData.Rows = EditorGUILayout.IntSlider("Rows: ", levelData.Rows, 1, 25);
+            AddButtonInitialize(levelData);
 
+            AddButtonUpdate(levelData);
+        }
+
+        private void AddLevelDetails(LevelData levelData)
+        {
+            levelData.Configuration = EditorGUILayout.ObjectField("Level: ",
+                levelData.Configuration, typeof(LevelConfiguration), false) as LevelConfiguration;
+
+            levelData.Columns = EditorGUILayout.IntSlider("Columns: ",
+                levelData.Columns, 1, 25);
+
+            levelData.Rows = EditorGUILayout.IntSlider("Rows: ",
+                levelData.Rows, 1, 25);
+        }
+
+        private void AddLevelSlots(LevelData levelData)
+        {
             EditorGUILayout.LabelField("Level Item per position:");
 
-            for (int i = 0; i < levelData.Slots.Count; i++)
+            for (int x = 0; x < levelData.Rows; x++)
             {
-                if (i % levelData.Rows == 0)
+                GUILayout.BeginHorizontal();
+
+                for (int y = 0; y < levelData.Columns; y++)
                 {
-                    GUILayout.BeginHorizontal();
+                    LevelSlot slot = FindLevelSlot(levelData.Slots, x, y);
+                    slot.ItemType = (LevelItemType)EditorGUILayout.EnumPopup(slot.ItemType);
                 }
 
-                levelData.Slots[i].ItemType = (LevelItemType)EditorGUILayout.EnumPopup(levelData.Slots[i].ItemType);
+                GUILayout.EndHorizontal();
+            }
+        }
 
-                if ((i + 1) % levelData.Columns == 0)
-                {
-                    GUILayout.EndHorizontal();
-                }
+        private LevelSlot FindLevelSlot(List<LevelSlot> slots, int x, int y)
+        {
+            LevelSlot slot = slots.Find(i => i.Coordinates.x == x &&
+                                             i.Coordinates.y == y);
+            if (slot == null)
+            {
+                slot = new LevelSlot(LevelItemType.None, new Vector2Int(x, y));
+                slots.Add(slot);
             }
 
+            return slot;
+        }
+
+        private void AddButtonInitialize(LevelData levelData)
+        {
             if (GUILayout.Button("Initialize"))
             {
                 Initialize(levelData);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
             }
+        }
 
+        private void AddButtonUpdate(LevelData levelData)
+        {
             if (GUILayout.Button("Update"))
             {
                 EditorUtility.SetDirty(levelData);
@@ -53,30 +85,14 @@ namespace Dragoncraft
         {
             levelData.Slots.Clear();
 
-            for (int x = 0; x < levelData.Columns; x++)
+            for (int x = 0; x < levelData.Rows; x++)
             {
-                for (int y = 0; y < levelData.Rows; y++)
+                for (int y = 0; y < levelData.Columns; y++)
                 {
-                    levelData.Slots.Add(new LevelSlot
-                    {
-                        ItemType = LevelItemType.None,
-                        Coordinates = new Vector2Int(x, y)
-                    });
+                    LevelSlot levelSlot = new LevelSlot(LevelItemType.None, new Vector2Int(x, y));
+                    levelData.Slots.Add(levelSlot);
                 }
             }
-        }
-
-        private LevelItemType FindLevelItemTypeAt(List<LevelSlot> slots, int x, int y)
-        {
-            foreach (LevelSlot slot in slots)
-            {
-                if (slot.Coordinates.x == x && slot.Coordinates.y == y)
-                {
-                    return slot.ItemType;
-                }
-            }
-
-            return LevelItemType.None;
         }
     }
 }
