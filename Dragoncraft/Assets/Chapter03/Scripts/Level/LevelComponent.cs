@@ -28,10 +28,10 @@ namespace Dragoncraft
 
             float offsetZ = planeSize.z / _levelData.Rows - 1;
 
-            InitializeLevel(startPosition, offsetX, offsetZ);
+            Initialize(startPosition, offsetX, offsetZ);
         }
 
-        private void InitializeLevel(Vector3 startPosition, float offsetX, float offsetZ)
+        private void Initialize(Vector3 start, float offsetX, float offsetZ)
         {
             foreach (LevelSlot slot in _levelData.Slots)
             {
@@ -41,8 +41,8 @@ namespace Dragoncraft
                     continue;
                 }
 
-                float x = startPosition.x + (slot.Coordinates.y * offsetX) + offsetX / 2;
-                float z = startPosition.z - (slot.Coordinates.x * offsetZ) - offsetZ / 2;
+                float x = start.x + (slot.Coordinates.y * offsetX) + offsetX / 2;
+                float z = start.z - (slot.Coordinates.x * offsetZ) - offsetZ / 2;
                 Vector3 position = new Vector3(x, 0, z);
 
                 Instantiate(levelItem.Prefab, position, Quaternion.identity, transform);
