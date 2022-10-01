@@ -10,6 +10,7 @@ namespace Dragoncraft
 
         public LevelItem FindByType(LevelItemType type)
         {
+            // Finds the first occurrence of the type in the list or return null otherwise
             return LevelItems.Find(item => item.Type == type);
         }
     }
