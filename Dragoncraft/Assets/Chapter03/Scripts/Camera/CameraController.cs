@@ -6,7 +6,7 @@ namespace Dragoncraft
     public class CameraController : MonoBehaviour
     {
         [SerializeField]
-        private float _borderSize = 50f;
+        private float _borderSize = 1f;
 
         [SerializeField]
         private float _panSpeed = 10f;
