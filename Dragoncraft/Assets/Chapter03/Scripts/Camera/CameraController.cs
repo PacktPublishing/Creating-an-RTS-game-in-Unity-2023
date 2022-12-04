@@ -20,6 +20,9 @@ namespace Dragoncraft
         [SerializeField]
         private Vector2 _scrollLimit = new Vector2(5f, 10f);
 
+        [SerializeField]
+        private bool _disableCameraMovement = false;
+
         private Vector3 _initialPosition = Vector3.zero;
         private Camera _camera = null;
 
@@ -33,6 +36,11 @@ namespace Dragoncraft
 
         private void Update()
         {
+            if (_disableCameraMovement)
+            {
+                return;
+            }
+
             UpdateZoom();
             UpdatePan();
         }
