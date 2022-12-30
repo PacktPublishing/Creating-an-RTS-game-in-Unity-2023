@@ -28,15 +28,7 @@ namespace Dragoncraft
                 unit = warrior.AddComponent<UnitComponent>();
             }
 
-            unit.ID = Guid.NewGuid().ToString();
-            unit.Type = _unitData.Type;
-            unit.Level = _unitData.Level;
-            unit.LevelMultiplier = _unitData.LevelMultiplier;
-            unit.Health = _unitData.Health;
-            unit.Attack = _unitData.Attack;
-            unit.Defense = _unitData.Defense;
-            unit.WalkSpeed = _unitData.WalkSpeed;
-            unit.AttackSpeed = _unitData.AttackSpeed;
+            unit.CopyData(_unitData);
         }
     }
 }

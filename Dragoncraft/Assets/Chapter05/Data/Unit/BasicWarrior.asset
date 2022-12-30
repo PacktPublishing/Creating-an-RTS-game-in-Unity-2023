@@ -20,3 +20,4 @@ MonoBehaviour:
   Defense: 1
   WalkSpeed: 10
   AttackSpeed: 5
+  SelectedColor: {r: 0, g: 0.6627451, b: 1, a: 1}

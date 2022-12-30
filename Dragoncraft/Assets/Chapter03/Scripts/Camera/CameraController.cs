@@ -36,11 +36,13 @@ namespace Dragoncraft
 
         private void Update()
         {
+            // Disables the camera movement if the property is true but only in the Unity Editor
+#if UNITY_EDITOR
             if (_disableCameraMovement)
             {
                 return;
             }
-
+#endif
             UpdateZoom();
             UpdatePan();
         }

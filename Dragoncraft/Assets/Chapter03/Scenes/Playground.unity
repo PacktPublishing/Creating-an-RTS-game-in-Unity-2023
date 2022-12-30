@@ -67,9 +67,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -433,6 +430,7 @@ MonoBehaviour:
   _panLimit: {x: 30, y: 35}
   _scrollSpeed: 1000
   _scrollLimit: {x: 5, y: 10}
+  _disableCameraMovement: 1
 --- !u!1 &1628417343
 GameObject:
   m_ObjectHideFlags: 0
