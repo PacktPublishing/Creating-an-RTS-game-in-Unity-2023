@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360a3f06594dfc94e9e04ed80d04fbab, type: 3}
+  m_Name: BasicMage
+  m_EditorClassIdentifier: 
+  Type: 1
+  Level: 1
+  LevelMultiplier: 1.2
+  Health: 3
+  Attack: 3
+  Defense: 1
+  WalkSpeed: 5
+  AttackSpeed: 1.8
+  SelectedColor: {r: 0.7490196, g: 0, b: 1, a: 1}
+  Actions: 15
+  AnimationStateAttack01: attack01
+  AnimationStateAttack02: attack02
+  AnimationStateDefense: victory
+  AnimationStateMove: run
+  AnimationStateIdle: idle
+  AnimationStateCollect: GetHit
+  AnimationStateDeath: die
+  OriginalColor: {r: 1, g: 1, b: 1, a: 1}
+  AttackRange: 8

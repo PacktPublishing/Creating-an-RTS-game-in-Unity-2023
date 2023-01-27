@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Chapter06/Scenes/Level01.unity
     guid: 133ca6ad30ca29648a0ffec8631ed570
   - enabled: 1
-    path: Assets/Chapter06/Scenes/GameUI.unity
-    guid: a038ce16235eb6246bc0db770d8a348d
+    path: Assets/Chapter07/Scenes/GameUI.unity
+    guid: edf51516c930ed94cabda8d7b3cf83cd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
