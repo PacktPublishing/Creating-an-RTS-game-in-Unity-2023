@@ -23,10 +23,10 @@ namespace Dragoncraft
             GameObject warrior = SpawnObject();
             warrior.SetLayerMaskToAllChildren("Unit");
 
-            UnitComponent unit = warrior.GetComponent<UnitComponent>();
+            UnitComponentNavMesh unit = warrior.GetComponent<UnitComponentNavMesh>();
             if (unit == null)
             {
-                unit = warrior.AddComponent<UnitComponent>();
+                unit = warrior.AddComponent<UnitComponentNavMesh>();
             }
 
             unit.CopyData(_unitData);

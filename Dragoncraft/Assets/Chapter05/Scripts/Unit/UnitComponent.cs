@@ -189,11 +189,21 @@ namespace Dragoncraft
                 return;
             }
 
+            UpdatePosition();
+        }
+
+        protected virtual void UpdatePosition()
+        {
             Vector3 direction = (_movePosition - transform.position).normalized;
             transform.position += direction * Time.deltaTime * WalkSpeed;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        protected Vector3 GetFinalPosition()
+        {
+            return _movePosition;
+        }
+
+        protected virtual void OnCollisionEnter(Collision collision)
         {
             Debug.Log($"name: {collision.gameObject.name} tag: {collision.gameObject.tag}");
 

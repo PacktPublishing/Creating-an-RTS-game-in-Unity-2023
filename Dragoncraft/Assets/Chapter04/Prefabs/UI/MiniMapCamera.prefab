@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!20 &320843444144124238
 Camera:
@@ -71,7 +71,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 407
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 92f91e05ab48d8f41bdce32bcec1c6cb, type: 2}
   m_TargetDisplay: 0

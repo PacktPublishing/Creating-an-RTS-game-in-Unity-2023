@@ -8,5 +8,6 @@ namespace Dragoncraft
     {
         public LevelItemType Type;
         public GameObject Prefab;
+        public LevelItemCollistionType CollistionType;
     }
 }

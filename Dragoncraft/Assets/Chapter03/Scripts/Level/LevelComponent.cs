@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Dragoncraft
 {
@@ -54,7 +55,20 @@ namespace Dragoncraft
 
                 // Instantiates the prefab at the desired position with the default rotation (Quaternion.identity)
                 // and set the game object with this script as the parent of the new game object
-                Instantiate(levelItem.Prefab, position, Quaternion.identity, transform);
+                GameObject item = Instantiate(levelItem.Prefab, position, Quaternion.identity, transform);
+
+                switch (levelItem.CollistionType)
+                {
+                    case LevelItemCollistionType.Rigidbody:
+                        item.AddComponent<BoxCollider>();
+                        break;
+                    case LevelItemCollistionType.NavMesh:
+                        item.AddComponent<NavMeshObstacle>();
+                        break;
+                    case LevelItemCollistionType.None:
+                    default:
+                        break;
+                }
             }
         }
     }
