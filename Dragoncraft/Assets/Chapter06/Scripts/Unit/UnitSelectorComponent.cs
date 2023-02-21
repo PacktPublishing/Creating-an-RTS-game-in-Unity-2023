@@ -96,6 +96,12 @@ namespace Dragoncraft
                         actions = unit.Actions;
                     }
                 }
+
+                EnemyComponent enemy = collider.GetComponent<EnemyComponent>();
+                if (enemy != null)
+                {
+                    enemy.Selected();
+                }
             }
 
             MessageQueueManager.Instance.SendMessage(new UpdateDetailsMessage { Units = _units, Model = model });

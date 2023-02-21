@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfb559dc28496b4587b33966538738e, type: 3}
+  m_Name: BasicOrc
+  m_EditorClassIdentifier: 
+  Type: 0
+  Health: 10
+  Attack: 2
+  Defense: 1
+  WalkSpeed: 5
+  AttackSpeed: 2
+  SelectedColor: {r: 1, g: 0.4117647, b: 0.38039216, a: 0}
+  AnimationStateAttack01: Attack01
+  AnimationStateAttack02: Attack02
+  AnimationStateDefense: Victory
+  AnimationStateMove: Run
+  AnimationStateIdle: Idle
+  AnimationStateDeath: Die
