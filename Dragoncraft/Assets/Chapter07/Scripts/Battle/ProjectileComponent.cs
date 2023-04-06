@@ -14,6 +14,8 @@ namespace Dragoncraft
         private float _countdown;
         private Rigidbody _rigidbody;
 
+        public float Damage;
+
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -28,10 +30,11 @@ namespace Dragoncraft
             }
         }
 
-        public void Setup(Vector3 position, Quaternion rotation)
+        public void Setup(Vector3 position, Quaternion rotation, float damage)
         {
             transform.position = position;
             transform.rotation = rotation;
+            Damage = damage;
 
             _countdown = _timeToLive;
             _rigidbody.velocity = transform.rotation * Vector3.forward * _speed;

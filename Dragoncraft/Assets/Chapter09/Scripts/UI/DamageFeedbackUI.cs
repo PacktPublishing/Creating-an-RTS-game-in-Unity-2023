@@ -25,10 +25,10 @@ namespace Dragoncraft
 
             Vector3 position = Camera.main.WorldToScreenPoint(message.Position);
             RectTransform rectTransform = damageFeedback.GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = position + new Vector3(Random.value * 100, Random.value * 10, 0);
+            rectTransform.anchoredPosition = position;
 
             TMP_Text damageText = damageFeedback.GetComponentInChildren<TMP_Text>();
-            damageText.text = $"-{message.Damage}";
+            damageText.text = message.Damage > 0 ? $"-{message.Damage}" : "0";
         }
     }
 }

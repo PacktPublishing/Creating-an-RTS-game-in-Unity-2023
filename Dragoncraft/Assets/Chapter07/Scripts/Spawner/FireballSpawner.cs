@@ -20,7 +20,7 @@ namespace Dragoncraft
             fireball.SetLayerMaskToAllChildren("Unit");
 
             ProjectileComponent projectile = fireball.GetComponent<ProjectileComponent>();
-            projectile.Setup(message.Position, message.Rotation);
+            projectile.Setup(message.Position, message.Rotation, message.Damage);
         }
     }
 }

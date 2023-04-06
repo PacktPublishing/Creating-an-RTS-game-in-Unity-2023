@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 
 namespace Dragoncraft
 {
@@ -33,12 +34,14 @@ namespace Dragoncraft
                     return AnimationStateMove;
                 case UnitAnimationState.Idle:
                     return AnimationStateIdle;
+                case UnitAnimationState.Collect:
+                    return AnimationStateCollect;
                 case UnitAnimationState.Death:
                     return AnimationStateDeath;
-                case UnitAnimationState.Collect:
                 default:
                     return AnimationStateIdle;
             }
         }
     }
 }
+*/

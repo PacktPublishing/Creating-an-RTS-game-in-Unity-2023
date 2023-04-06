@@ -6,5 +6,6 @@ namespace Dragoncraft
     {
         public Vector3 Position;
         public Quaternion Rotation;
+        public float Damage;
     }
 }
