@@ -40,8 +40,18 @@ namespace Dragoncraft
         {
             Debug.Log($"OnCollisionEnter: {collision.gameObject.name} {_character.ID}");
 
+            if (_character.IsDead)
+            {
+                return;
+            }
+
             if (collision.gameObject.TryGetComponent<BaseCharacter>(out var opponent))
             {
+                if (opponent.IsDead)
+                {
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(_targetId))
                 {
                     _targetId = opponent.ID;

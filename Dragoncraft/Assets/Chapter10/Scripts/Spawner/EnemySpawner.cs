@@ -55,6 +55,8 @@ namespace Dragoncraft
             }
 
             enemyComponent.CopyData(_enemyData, message.SpawnPoint);
+
+            enemyObject.transform.LookAt(Vector3.zero);
         }
     }
 }
