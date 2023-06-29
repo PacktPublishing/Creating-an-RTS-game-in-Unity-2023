@@ -81,7 +81,7 @@ namespace Dragoncraft
             foreach (Collider collider in colliders)
             {
                 UnitComponent unit = collider.GetComponent<UnitComponent>();
-                if (unit != null)
+                if (unit != null && !unit.IsDead)
                 {
                     _units.Add(unit);
 

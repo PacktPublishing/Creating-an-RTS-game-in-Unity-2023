@@ -104,5 +104,10 @@ namespace Dragoncraft
                 transform.position.y + _renderer.bounds.size.y / 2,
                 transform.position.z);
         }
+
+        public ActionType GetActionType()
+        {
+            return _action;
+        }
     }
 }
