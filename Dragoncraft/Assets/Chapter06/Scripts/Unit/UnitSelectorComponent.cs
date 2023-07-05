@@ -65,11 +65,11 @@ namespace Dragoncraft
             return Vector3.zero;
         }
 
-        private void SelectUnits(Vector3 startPostion, Vector3 endPosition)
+        private void SelectUnits(Vector3 startPosition, Vector3 endPosition)
         {
             _units.Clear();
 
-            Vector3 center = (_startPosition + endPosition) / 2;
+            Vector3 center = (startPosition + endPosition) / 2;
             float distance = Vector3.Distance(center, endPosition);
             distance = distance < _minDistanceValue ? _minDistanceValue : distance;
             Vector3 halfExtents = new Vector3(distance, distance, distance);

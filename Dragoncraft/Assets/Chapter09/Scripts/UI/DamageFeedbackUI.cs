@@ -28,7 +28,7 @@ namespace Dragoncraft
             rectTransform.anchoredPosition = position;
 
             TMP_Text damageText = damageFeedback.GetComponentInChildren<TMP_Text>();
-            damageText.text = message.Damage > 0 ? $"-{message.Damage}" : "0";
+            damageText.text = message.Damage > 0 ? $"-{Mathf.Round(message.Damage)}" : "0";
         }
     }
 }

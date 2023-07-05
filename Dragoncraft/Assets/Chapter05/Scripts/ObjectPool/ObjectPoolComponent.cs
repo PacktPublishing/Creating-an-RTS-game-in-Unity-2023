@@ -28,7 +28,7 @@ namespace Dragoncraft
         private GameObject CreateItem(bool active)
         {
             GameObject item = Instantiate(_prefab);
-            item.transform.SetParent(gameObject.transform);
+            item.transform.SetParent(transform);
             item.SetActive(active);
             return item;
         }

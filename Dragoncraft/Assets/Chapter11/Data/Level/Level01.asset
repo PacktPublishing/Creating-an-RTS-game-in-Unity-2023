@@ -218,6 +218,6 @@ MonoBehaviour:
   Configuration: {fileID: 11400000, guid: aa3b9a9cf6e0e3440b7733e69bcecce7, type: 2}
   EnemyGroups:
   - Data: {fileID: 11400000, guid: 8b8c664a06a279e4dbcb2fa6b7a1d0ec, type: 2}
-    Position: {x: 0, y: 0, z: 0}
+    Position: {x: -20, y: 0, z: 0}
   - Data: {fileID: 11400000, guid: 43d38304adbb46141aedd6469e86607b, type: 2}
     Position: {x: 20, y: 0, z: 10}
