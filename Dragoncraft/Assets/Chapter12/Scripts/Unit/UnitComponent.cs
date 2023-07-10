@@ -54,6 +54,27 @@ namespace Dragoncraft
             EnableMovement(true);
         }
 
+        public void Selected(bool selected)
+        {
+            if (_renderer == null)
+            {
+                Debug.LogError("Renderer component is missing!");
+                return;
+            }
+            Material[] materials = _renderer.materials;
+            foreach (Material material in materials)
+            {
+                if (selected)
+                {
+                    material.SetColor("_EmissionColor", SelectedColor * 0.5f);
+                }
+                else
+                {
+                    material.SetColor("_EmissionColor", _emissionColor);
+                }
+            }
+        }
+
         private void Update()
         {
             if (IsDead)

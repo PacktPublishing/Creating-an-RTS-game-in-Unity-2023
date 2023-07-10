@@ -9,6 +9,7 @@ namespace Dragoncraft
         protected Animator _animator;
         protected Renderer _renderer;
         protected Color _originalColor;
+        protected Color _emissionColor;
         protected ActionType _action;
 
         public string ID;
@@ -28,6 +29,7 @@ namespace Dragoncraft
             _renderer = GetComponentInChildren<Renderer>();
             _animator = GetComponent<Animator>();
             _originalColor = _renderer.material.color;
+            _emissionColor = _renderer.material.GetColor("_EmissionColor");
         }
 
         private void OnMouseEnter()

@@ -67,6 +67,10 @@ namespace Dragoncraft
 
         private void SelectUnits(Vector3 startPosition, Vector3 endPosition)
         {
+            foreach (UnitComponent unit in _units)
+            {
+                unit.Selected(false);
+            }
             _units.Clear();
 
             Vector3 center = (startPosition + endPosition) / 2;
@@ -83,6 +87,7 @@ namespace Dragoncraft
                 UnitComponent unit = collider.GetComponent<UnitComponent>();
                 if (unit != null && !unit.IsDead)
                 {
+                    unit.Selected(true);
                     _units.Add(unit);
 
                     if (model == null)
