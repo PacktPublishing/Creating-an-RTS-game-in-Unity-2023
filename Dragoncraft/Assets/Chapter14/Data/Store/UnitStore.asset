@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4858b23d758f994194602e13835dfae, type: 3}
+  m_Name: UnitStore
+  m_EditorClassIdentifier: 
+  Items:
+  - Description: Upgrades the Warrior Level
+    PriceGold: 5000
+    PriceResource: 5000
+    CurrencyResource: 2
+    Image: {fileID: 21300000, guid: cc8e2be9532fbc543af51c6932181466, type: 3}
+    Prefab: {fileID: 0}
+    Unit: 0
+  - Description: Upgrades the Mage level
+    PriceGold: 10000
+    PriceResource: 10000
+    CurrencyResource: 2
+    Image: {fileID: 21300000, guid: acf24f91ea86d2140b7efa39f2011f06, type: 3}
+    Prefab: {fileID: 0}
+    Unit: 1
+  - Description: Builds a Defense Tower
+    PriceGold: 20000
+    PriceResource: 20000
+    CurrencyResource: 1
+    Image: {fileID: 21300000, guid: 719c2201c2f5f6c4aafffaeb5abdf5f9, type: 3}
+    Prefab: {fileID: 2547109427877416434, guid: 8e085c881b6be9346937ba70c81dcaf9, type: 3}
+    Unit: 2

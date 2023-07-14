@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dd450e62cd3b7bd4f96ba5a499ed2f5b
+timeCreated: 1450637124
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50215
+  packageName: Canon Tower
+  packageVersion: 1.0
+  assetPath: Assets/CanonTower/Materials/Tower_Top_mat.mat
+  uploadId: 94961

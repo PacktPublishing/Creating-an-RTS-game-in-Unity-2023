@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b128499fa9af31f46981e7e520f91556
+timeCreated: 1450637113
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50215
+  packageName: Canon Tower
+  packageVersion: 1.0
+  assetPath: Assets/CanonTower/Materials/Tower_Base_Deco_mat.mat
+  uploadId: 94961

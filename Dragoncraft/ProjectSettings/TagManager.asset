@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Plane
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Enemy
   - Fog
   - Resource
-  - 
+  - Tower
   - 
   - 
   - 
