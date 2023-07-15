@@ -20,57 +20,75 @@ namespace Dragoncraft.Tests
             ("BasicWarrior", new List<string>{"BasicOrc", "BasicOrc", "BasicGolem"}, 3, false)
         };
 
+        private List<EnemyData> _enemyDataList = new List<EnemyData>();
+        private List<float> _enemyHealthList = new List<float>();
+
         [UnityTest]
         public IEnumerator TestWithMultiEnemy([ValueSource("battles")] (string unit, List<string> enemies, int level, bool unitWin) battle)
         {
             UnitData unitData = LoadUnit(battle.unit);
             float unitHealth = unitData.Health;
-
-            List<EnemyData> enemyDataList = new List<EnemyData>();
-            List<float> enemyHealthList = new List<float>();
-            foreach (string enemy in battle.enemies)
-            {
-                EnemyData enemyData = LoadEnemy(enemy);
-                enemyDataList.Add(enemyData);
-                enemyHealthList.Add(enemyData.Health);
-            }
+            InitializeListsWithEnemies(battle.enemies);
 
             float timer = 0;
             bool battleEnded = false;
             while (unitHealth > 0 && !battleEnded)
             {
-                if (timer % unitData.AttackSpeed == 0)
-                {
-                    for (int i = 0; i < enemyDataList.Count; i++)
-                    {
-                        if (enemyHealthList[i] > 0)
-                        {
-                            enemyHealthList[i] -= Mathf.Max(unitData.GetAttack(battle.level) - enemyDataList[i].Defense, 0);
-                            break;
-                        }
-                    }
-                }
+                AttackEnemy(timer, unitData, battle.level);
 
-                for (int i = 0; i < enemyDataList.Count; i++)
-                {
-                    if (enemyHealthList[i] <= 0)
-                    {
-                        continue;
-                    }
+                AttackUnit(timer, unitData, battle.level, ref unitHealth);
 
-                    if (timer % enemyDataList[i].AttackSpeed == 0)
-                    {
-                        unitHealth -= Mathf.Max(enemyDataList[i].Attack - unitData.GetDefense(battle.level), 0);
-                    }
-                }
-
-                battleEnded = !enemyHealthList.Any(i => i > 0);
+                battleEnded = !_enemyHealthList.Any(i => i > 0);
 
                 timer += 0.5f;
                 yield return null;
             }
 
             Assert.AreEqual(battle.unitWin, unitHealth > 0, "The unit was defeated but should have won.");
+        }
+
+        private void InitializeListsWithEnemies(List<string> enemies)
+        {
+            _enemyDataList.Clear();
+            _enemyHealthList.Clear();
+
+            foreach (string enemy in enemies)
+            {
+                EnemyData enemyData = LoadEnemy(enemy);
+                _enemyDataList.Add(enemyData);
+                _enemyHealthList.Add(enemyData.Health);
+            }
+        }
+
+        private void AttackEnemy(float timer, UnitData unitData, int level)
+        {
+            if (timer % unitData.AttackSpeed == 0)
+            {
+                for (int i = 0; i < _enemyDataList.Count; i++)
+                {
+                    if (_enemyHealthList[i] > 0)
+                    {
+                        _enemyHealthList[i] -= Mathf.Max(unitData.GetAttack(level) - _enemyDataList[i].Defense, 0);
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void AttackUnit(float timer, UnitData unitData, int level, ref float unitHealth)
+        {
+            for (int i = 0; i < _enemyDataList.Count; i++)
+            {
+                if (_enemyHealthList[i] <= 0)
+                {
+                    continue;
+                }
+
+                if (timer % _enemyDataList[i].AttackSpeed == 0)
+                {
+                    unitHealth -= Mathf.Max(_enemyDataList[i].Attack - unitData.GetDefense(level), 0);
+                }
+            }
         }
     }
 }
