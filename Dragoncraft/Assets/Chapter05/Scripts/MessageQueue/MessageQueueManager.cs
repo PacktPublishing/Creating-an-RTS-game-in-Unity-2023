@@ -38,7 +38,7 @@ namespace Dragoncraft
             List<Delegate> listeners = null;
             if (_listeners.TryGetValue(typeof(T), out listeners))
             {
-                _listeners.Remove(typeof(T));
+                listeners.Remove(listener);
             }
         }
 
