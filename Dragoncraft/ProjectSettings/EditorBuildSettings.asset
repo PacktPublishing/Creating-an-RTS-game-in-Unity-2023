@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Chapter14/Scenes/Level01.unity
-    guid: b04657cddc6d163458247d2304983dd4
+    path: Assets/Chapter15/Scenes/Level01.unity
+    guid: b398cdacad0930b42b6c2039ac448d46
   - enabled: 1
-    path: Assets/Chapter14/Scenes/GameUI.unity
-    guid: f81e2c61605e1a341a2a49d32d3090c5
+    path: Assets/Chapter15/Scenes/GameUI.unity
+    guid: 0fd9dd20a3bd11d48ac961c510ec43a6
   - enabled: 1
-    path: Assets/Chapter14/Scenes/Playground.unity
-    guid: 5f5f65232ab1c594a91f67bbbda96cba
+    path: Assets/Chapter15/Scenes/Playground.unity
+    guid: 6feb35be6a608134c9346d7b444cf5bd
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
