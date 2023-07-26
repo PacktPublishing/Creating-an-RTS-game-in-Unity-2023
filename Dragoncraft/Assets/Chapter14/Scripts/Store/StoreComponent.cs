@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,10 @@ namespace Dragoncraft
         private TMP_Text _errorMessage;
 
         [SerializeField]
-        private List<StoreItemComponent> _storeItems = new List<StoreItemComponent>();
+        private ObjectPoolComponent _objectPool;
+
+        [SerializeField]
+        private GameObject _content;
 
         private void OnEnable()
         {
@@ -24,7 +26,7 @@ namespace Dragoncraft
             {
                 for (int i = 0; i < _resourceStoreData.Items.Count; i++)
                 {
-                    InitializeStoreItem(_storeItems[i], _resourceStoreData.Items[i]);
+                    InitializeStoreItem(_objectPool.GetObject(), _resourceStoreData.Items[i]);
                 }
             }
 
@@ -32,7 +34,7 @@ namespace Dragoncraft
             {
                 for (int i = 0; i < _unitStoreData.Items.Count; i++)
                 {
-                    InitializeStoreItem(_storeItems[i], _unitStoreData.Items[i]);
+                    InitializeStoreItem(_objectPool.GetObject(), _unitStoreData.Items[i]);
                 }
             }
 
@@ -41,16 +43,19 @@ namespace Dragoncraft
 
         private void OnDisable()
         {
-            foreach (StoreItemComponent storeItem in _storeItems)
+            for (int i = 0; i < _content.transform.childCount; i++)
             {
-                storeItem.gameObject.SetActive(false);
+                _content.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
 
-        private void InitializeStoreItem(StoreItemComponent component, StoreItem storeItem)
+        private void InitializeStoreItem(GameObject component, StoreItem storeItem)
         {
-            component.Initialize(storeItem, PurchaseCallback);
-            component.gameObject.SetActive(true);
+            component.transform.SetParent(_content.transform, false);
+
+            StoreItemComponent storeItemComponent = component.GetComponent<StoreItemComponent>();
+            storeItemComponent.Initialize(storeItem, PurchaseCallback);
+            storeItemComponent.gameObject.SetActive(true);
         }
 
         private void PurchaseCallback(bool success, string errorMessage)

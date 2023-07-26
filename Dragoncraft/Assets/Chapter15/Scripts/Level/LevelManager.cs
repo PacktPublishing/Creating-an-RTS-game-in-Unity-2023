@@ -31,6 +31,7 @@ namespace Dragoncraft
             Instance = this;
             Units = new List<GameObject>();
             _inventory = new InventoryManager();
+            _inventory.UpdateResource(ResourceType.Gold, 100);
         }
 
         private void Start()
@@ -66,16 +67,6 @@ namespace Dragoncraft
             return _inventory.GetResource(type);
         }
 
-        public void UpdateResourceUpgrade(ResourceType type, int level)
-        {
-            _inventory.UpdateResourceUpgrade(type, level);
-        }
-
-        public int GetResourceUpgrade(ResourceType type)
-        {
-            return _inventory.GetResourceUpgrade(type);
-        }
-
         public void AddBuilding(GameObject prefab)
         {
             GameObject building = Instantiate(prefab);
@@ -84,16 +75,6 @@ namespace Dragoncraft
             building.transform.localScale = Vector3.one * 0.5f;
             building.layer = LayerMask.NameToLayer("Resource");
             building.tag = "Building";
-        }
-
-        public void UpdateUnitUpgrade(UnitType type, int level)
-        {
-            _inventory.UpdateUnitUpgrade(type, level);
-        }
-
-        public int GetUnitUpgrade(UnitType type)
-        {
-            return _inventory.GetUnitUpgrade(type);
         }
 
         public void AddTower(GameObject prefab)

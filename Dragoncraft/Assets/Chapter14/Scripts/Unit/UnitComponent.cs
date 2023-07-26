@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Dragoncraft
 {
@@ -20,7 +21,6 @@ namespace Dragoncraft
         {
             MessageQueueManager.Instance.AddListener<ActionCommandMessage>(OnActionCommandReceived);
             MessageQueueManager.Instance.AddListener<UpgradeUnitMessage>(OnUnitUpgradeReceived);
-
         }
 
         private void OnDisable()
@@ -37,7 +37,10 @@ namespace Dragoncraft
 
         private void OnUnitUpgradeReceived(UpgradeUnitMessage message)
         {
-            Level = LevelManager.Instance.GetUnitUpgrade(Type);
+            if (Type == message.Type)
+            {
+                Level++;
+            }
         }
 
         public void CopyData(UnitData unitData)

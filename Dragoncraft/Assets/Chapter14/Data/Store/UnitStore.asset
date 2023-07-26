@@ -13,6 +13,22 @@ MonoBehaviour:
   m_Name: UnitStore
   m_EditorClassIdentifier: 
   Items:
+  - Description: Spawns a Warrior
+    PriceGold: 100
+    PriceResource: 0
+    CurrencyResource: 0
+    Image: {fileID: 21300000, guid: cc8e2be9532fbc543af51c6932181466, type: 3}
+    Prefab: {fileID: 0}
+    Unit: 0
+    IsUpgrade: 0
+  - Description: Spawns a Mage
+    PriceGold: 500
+    PriceResource: 0
+    CurrencyResource: 0
+    Image: {fileID: 21300000, guid: acf24f91ea86d2140b7efa39f2011f06, type: 3}
+    Prefab: {fileID: 0}
+    Unit: 1
+    IsUpgrade: 0
   - Description: Upgrades the Warrior Level
     PriceGold: 5000
     PriceResource: 5000
@@ -20,6 +36,7 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: cc8e2be9532fbc543af51c6932181466, type: 3}
     Prefab: {fileID: 0}
     Unit: 0
+    IsUpgrade: 1
   - Description: Upgrades the Mage level
     PriceGold: 10000
     PriceResource: 10000
@@ -27,6 +44,7 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: acf24f91ea86d2140b7efa39f2011f06, type: 3}
     Prefab: {fileID: 0}
     Unit: 1
+    IsUpgrade: 1
   - Description: Builds a Defense Tower
     PriceGold: 20000
     PriceResource: 20000
@@ -34,3 +52,4 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: 719c2201c2f5f6c4aafffaeb5abdf5f9, type: 3}
     Prefab: {fileID: 2547109427877416434, guid: 8e085c881b6be9346937ba70c81dcaf9, type: 3}
     Unit: 2
+    IsUpgrade: 0

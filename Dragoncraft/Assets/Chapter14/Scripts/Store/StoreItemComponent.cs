@@ -22,8 +22,12 @@ namespace Dragoncraft
             _callback = callback;
             _image.sprite = storeItem.Image;
             _description.text = $"{storeItem.Description}\n" +
-                $"Price: {storeItem.PriceGold} Gold + " +
-                $"{storeItem.PriceResource} {storeItem.CurrencyResource}";
+                $"Price: {storeItem.PriceGold} Gold";
+            if (storeItem.PriceResource > 0)
+            {
+                _description.text += $" + {storeItem.PriceResource} " +
+                    $"{storeItem.CurrencyResource}";
+            }
         }
 
         public void OnClick()
@@ -44,8 +48,9 @@ namespace Dragoncraft
             }
 
             UpdateInventory();
-            UpgradeResourceInventory();
-            UpgradeUnitInventory();
+            UpgradeResource();
+            UpgradeUnit();
+            SpawnUnit();
 
             _callback(true, null);
         }
@@ -59,7 +64,7 @@ namespace Dragoncraft
             MessageQueueManager.Instance.SendMessage(new UpdateResourceMessage { Type = ResourceType.Gold });
         }
 
-        private void UpgradeResourceInventory()
+        private void UpgradeResource()
         {
             if (_storeItem.GetType() != typeof(ResourceStoreItem))
             {
@@ -68,16 +73,9 @@ namespace Dragoncraft
 
             ResourceStoreItem item = (ResourceStoreItem)_storeItem;
             MessageQueueManager.Instance.SendMessage(new UpgradeResourceMessage { Type = item.Resource });
-
-            int level = LevelManager.Instance.GetResourceUpgrade(item.Resource);
-            if (level == 1)
-            {
-                LevelManager.Instance.AddBuilding(item.Prefab);
-            }
-            LevelManager.Instance.UpdateResourceUpgrade(item.Resource, 1);
         }
 
-        private void UpgradeUnitInventory()
+        private void UpgradeUnit()
         {
             if (_storeItem.GetType() != typeof(UnitStoreItem))
             {
@@ -85,10 +83,36 @@ namespace Dragoncraft
             }
 
             UnitStoreItem item = (UnitStoreItem)_storeItem;
-            LevelManager.Instance.UpdateUnitUpgrade(item.Unit, 1);
-            MessageQueueManager.Instance.SendMessage(new UpgradeUnitMessage { Type = item.Unit });
+            if (!item.IsUpgrade)
+            {
+                return;
+            }
 
-            if (item.Unit == UnitType.Tower)
+            MessageQueueManager.Instance.SendMessage(new UpgradeUnitMessage { Type = item.Unit });
+        }
+
+        private void SpawnUnit()
+        {
+            if (_storeItem.GetType() != typeof(UnitStoreItem))
+            {
+                return;
+            }
+
+            UnitStoreItem item = (UnitStoreItem)_storeItem;
+            if (item.IsUpgrade)
+            {
+                return;
+            }
+
+            if (item.Unit == UnitType.Warrior)
+            {
+                MessageQueueManager.Instance.SendMessage(new BasicWarriorSpawnMessage());
+            }
+            else if (item.Unit == UnitType.Mage)
+            {
+                MessageQueueManager.Instance.SendMessage(new BasicMageSpawnMessage());
+            }
+            else if (item.Unit == UnitType.Tower)
             {
                 LevelManager.Instance.AddTower(item.Prefab);
             }
