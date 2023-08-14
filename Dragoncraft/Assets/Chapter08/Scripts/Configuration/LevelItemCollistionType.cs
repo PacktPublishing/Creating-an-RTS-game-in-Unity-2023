@@ -3,7 +3,7 @@ using System;
 namespace Dragoncraft
 {
     [Serializable]
-    public enum LevelItemCollistionType
+    public enum LevelItemCollisionType
     {
         None,
         Rigidbody,

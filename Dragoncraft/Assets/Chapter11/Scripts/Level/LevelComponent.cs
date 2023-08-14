@@ -59,15 +59,15 @@ namespace Dragoncraft
                 // and set the game object with this script as the parent of the new game object
                 GameObject item = Instantiate(levelItem.Prefab, position, Quaternion.identity, transform);
 
-                switch (levelItem.CollistionType)
+                switch (levelItem.CollisionType)
                 {
-                    case LevelItemCollistionType.Rigidbody:
+                    case LevelItemCollisionType.Rigidbody:
                         item.AddComponent<BoxCollider>();
                         break;
-                    case LevelItemCollistionType.NavMesh:
+                    case LevelItemCollisionType.NavMesh:
                         item.AddComponent<NavMeshObstacle>();
                         break;
-                    case LevelItemCollistionType.None:
+                    case LevelItemCollisionType.None:
                     default:
                         break;
                 }
