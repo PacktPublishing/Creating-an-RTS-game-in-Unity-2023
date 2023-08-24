@@ -8,13 +8,13 @@ namespace Dragoncraft
     public static class BuildSystem
     {
         private static string[] _releaseScenes = new[] {
-            "Assets/Scenes/Level01.unity",
-            "Assets/Scenes/GameUI.unity"
+            "Assets/Chapter16/Scenes/Level01.unity",
+            "Assets/Chapter16/Scenes/GameUI.unity"
         };
 
         private static string[] _debugScenes = new[] {
-            "Assets/Scenes/Playground.unity",
-            "Assets/Scenes/GameUI.unity"
+            "Assets/Chapter16/Scenes/Playground.unity",
+            "Assets/Chapter16/Scenes/GameUI.unity"
         };
 
         [MenuItem("Dragoncraft/Build/Build All (Debug and Release)", priority = 0)]

@@ -73,6 +73,8 @@ namespace Dragoncraft
 
             ResourceStoreItem item = (ResourceStoreItem)_storeItem;
             MessageQueueManager.Instance.SendMessage(new UpgradeResourceMessage { Type = item.Resource });
+
+            LevelManager.Instance.AddBuilding(item.Prefab);
         }
 
         private void UpgradeUnit()
