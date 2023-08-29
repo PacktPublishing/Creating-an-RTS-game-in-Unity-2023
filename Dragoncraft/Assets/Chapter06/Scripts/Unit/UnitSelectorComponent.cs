@@ -34,25 +34,25 @@ namespace Dragoncraft
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                _startPosition = GetMousePostion();
+                _startPosition = GetMousePosition();
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
-                Vector3 endPosition = GetMousePostion();
+                Vector3 endPosition = GetMousePosition();
 
                 SelectUnits(_startPosition, endPosition);
             }
 
             if (Input.GetKeyUp(KeyCode.Mouse1))
             {
-                Vector3 movePosition = GetMousePostion();
+                Vector3 movePosition = GetMousePosition();
 
                 MoveSelectedUnits(movePosition);
             }
         }
 
-        private Vector3 GetMousePostion()
+        private Vector3 GetMousePosition()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
