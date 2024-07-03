@@ -38,7 +38,7 @@ With the following software and hardware list you can run all code files present
 | 1-16 | C# | Windows or Mac OS |
 
 ### Errata
-* Page 163, Here's what needs to be done (at end of the page):
+* Pages 158-163, **Missing Instruction for GameUI Scene Setup**, Here's what needs to be done (at end of the page 163):
     * In the GameUI scene, add the script DetailsUpdated to the game object Details, inside Canvas.
     * Drag-and-drop the following game objects to the script properties in the Inspector: ![reference](https://github.com/PacktPublishing/Creating-an-RTS-game-in-Unity-2023/assets/134607196/9bd0637e-106f-418a-8740-bb7d0d360f48)
     * Additionally, set the Max Objects Per Row property to 5.
