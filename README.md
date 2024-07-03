@@ -37,6 +37,12 @@ With the following software and hardware list you can run all code files present
 | 1-16 | Visual Studio Code or Visual Studio 2022 | Windows or Mac OS |
 | 1-16 | C# | Windows or Mac OS |
 
+### Errata
+* Page 163, Here's what needs to be done (at end of the page):
+    * In the GameUI scene, add the script DetailsUpdated to the game object Details, inside Canvas.
+    * Drag-and-drop the following game objects to the script properties in the Inspector: ![reference](https://github.com/PacktPublishing/Creating-an-RTS-game-in-Unity-2023/assets/134607196/9bd0637e-106f-418a-8740-bb7d0d360f48)
+    * Additionally, set the Max Objects Per Row property to 5.
+
 
 ### Related products
 * Unity 2022 Mobile Game Development [[Packt]](https://www.packtpub.com/product/unity-2022-mobile-game-development-third-edition/9781804613726) [[Amazon]](https://www.amazon.com/dp/180461372X)
