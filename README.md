@@ -37,6 +37,9 @@ With the following software and hardware list you can run all code files present
 | 1-16 | Visual Studio Code or Visual Studio 2022 | Windows or Mac OS |
 | 1-16 | C# | Windows or Mac OS |
 
+### Note
+If you are using the digital version of this book, we advise you to type the code yourself or access the code from the repository. Doing so will help you avoid any potential errors related to the copying and pasting of code.
+
 ### Errata
 * Pages 158-163, **Missing Instruction for GameUI Scene Setup**, Here's what needs to be done (at end of the page 163):
     * In the GameUI scene, add the script DetailsUpdated to the game object Details, inside Canvas.
